@@ -1,0 +1,49 @@
+<h1>Evento</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Nome</th>
+            <td>{{ entity.nome }}</td>
+        </tr>
+        <tr>
+            <th>Data_inicio</th>
+            <td>{{ entity.datainicio|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Data_final</th>
+            <td>{{ entity.datafinal|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Descricao</th>
+            <td>{{ entity.descricao }}</td>
+        </tr>
+        <tr>
+            <th>Ativo</th>
+            <td>{{ entity.ativo }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('evento') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('evento_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('evento_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
